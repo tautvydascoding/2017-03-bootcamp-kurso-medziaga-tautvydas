@@ -5,7 +5,7 @@ Cia bus dedama pagrindine pagrindine informacija ir nuorodos.
 
 Destytojas: Tautvydas
 
-Kurso pražia: 2017-03-21    9:30
+Kurso pražia: 2017-03-27    9:30
 Vieta:  Kuršių g. 7, Kaunas 48109, Lietuva
 
 
