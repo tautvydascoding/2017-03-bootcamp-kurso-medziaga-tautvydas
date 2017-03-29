@@ -39,6 +39,7 @@ li a {
 section {
   background-color: #fff;
   width: 70%;
+  float: left;
 }
 aside {
   background-color: #f98989;
