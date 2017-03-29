@@ -1,0 +1,11 @@
+.turinys1, .turinys2, .turinys3 {
+  width: 33%;
+  background-color: #999;
+  border: 1px solid #000;
+  float: left;
+  pading: 10px 12px 10px 12px;
+  
+}
+p {
+  color: #222;
+}
