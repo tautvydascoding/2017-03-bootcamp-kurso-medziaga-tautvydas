@@ -4,7 +4,7 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
-h1 {
+h1, h2 {
   text-align: center;
 }
 /* reset css */
@@ -14,8 +14,18 @@ a {
 .clear-float {
   clear: both;
 }
+.text-center {
+    text-align: center;
+}
 menu  {
-  width: 600px;
+  width: 600px; 
+    background-color: #f98989;
+    height: 50px;
+    vertical-align: middle;
+    line-height: 50px;
+}
+.search-form {
+  width: 424px;
 }
 menu ul, menu {
   margin:  0;
@@ -25,17 +35,13 @@ menu ul li {
   display: inline-block;
   text-transform: uppercase;
   width: 24%;
+  text-align: center;
 }
 li a {
   color: #000;
 }
 
- menu {
-   background-color: #f98989;
-   height: 50px;
-   vertical-align: middle;
-   line-height: 50px;
- }
+
 section {
   background-color: #fff;
   width: 70%;
@@ -46,6 +52,18 @@ aside {
   width: 30%;
   float: left;
 }
+aside li a {
+   padding: 13px 0;
+   display: block;
+   color: #26b;
+   text-decoration: underline;
+}
 footer {
   background-color: #e69d84;
+  height: 90px;
+
+}
+.vertical-midle {
+  vertical-align: middle;
+  line-height: 90px;
 }
