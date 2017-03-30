@@ -1,8 +1,9 @@
- section { background-color: #bad; }
-
- .container-fluid {
-   background-color: #f9f;
- }
- .row {
-     background-color: #f7f;
- }
+.reklama {
+  background-image: url(http://www.breakfree.lt/bundles/breakfree/images/new/rooms/pabegimo_kambarys_stebuklu_salis_vaikams.jpg);
+  width: 100%;
+  height: 350px;
+  margin: 50px 0px;
+}
+button {
+ text-decoration: none;
+}
