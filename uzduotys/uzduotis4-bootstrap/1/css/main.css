@@ -1,0 +1,5 @@
+ section { background-color: #bad; }
+.row div {
+  background-color: #fff;
+  border: 1px solid #bdd;
+}
