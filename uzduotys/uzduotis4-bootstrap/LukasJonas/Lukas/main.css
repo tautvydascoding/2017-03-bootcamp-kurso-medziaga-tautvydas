@@ -1,0 +1,35 @@
+
+body {
+  background-color: #2b5727;
+}
+section {
+  background-color: #bad;
+
+}
+.container-fluid {
+  background-color: #c4c338;
+}
+
+.row {
+  background-color: #b4c;
+
+}
+img {
+  width: 100%;
+}
+
+h1 {
+  text-align: center;
+  color: #fff;
+}
+
+.blokas {
+  background-color: #546f75;
+  color: #fff;
+  margin-top: 60px;
+}
+
+.tekstas {
+  background-color: #67eb10;
+  color: #fff;
+}
