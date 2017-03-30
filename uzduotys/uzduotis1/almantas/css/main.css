@@ -1,0 +1,39 @@
+body {
+  width: 1040px;
+  margin: 0 auto;
+}
+h1{
+  text-align: center;
+}
+p {
+  color: #222;
+}
+
+.turinys1, .turinys2, .turinys3 {
+  width: 25%;
+  background-color: #999;
+  border: 1px solid #000;
+  float: left;
+  padding: 10px 12px 10px 12px;
+  margin: 20px;
+  position: relative;
+}
+.turinys1 h2 {
+  background-color: #fb8686;
+  width: 90px;
+}
+.turinys2 h2 {
+  background-color: #fb8000;
+  width: 90px;
+}
+.turinys3 h2 {
+  background-color: #fc8000;
+  width: 90px;
+}
+.turinys1 h2, .turinys2 h2, .turinys3 h2 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
