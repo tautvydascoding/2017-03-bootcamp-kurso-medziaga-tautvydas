@@ -1,5 +1,8 @@
  section { background-color: #bad; }
-.row div {
-  background-color: #fff;
-  border: 1px solid #bdd;
-}
+
+ .container-fluid {
+   background-color: #f9f;
+ }
+ .row {
+     background-color: #f7f;
+ }
