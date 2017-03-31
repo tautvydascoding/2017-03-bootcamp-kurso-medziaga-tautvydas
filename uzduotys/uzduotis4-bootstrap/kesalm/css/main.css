@@ -5,3 +5,12 @@ menu ul li {
     text-align: right;
     text-decoration: none;
 }
+.adverts {
+  position: relative;
+}
+.post-content {
+  background: 0 0 rgba(#ffffff, 0);
+  top: 42%;
+  left: 40%;
+    position: absolute;
+}

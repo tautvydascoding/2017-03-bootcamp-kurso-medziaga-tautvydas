@@ -1,3 +1,4 @@
+
 body{
 background-color:#bbb;
 width:1024px;
@@ -119,4 +120,13 @@ input.search-button{
 }
 .clear-float{
 clear:both;
+}
+
+section { background-color: #bad; }
+
+.container-fluid {
+  background-color: #f9f;
+}
+.row {
+    background-color: #f7f;
 }
