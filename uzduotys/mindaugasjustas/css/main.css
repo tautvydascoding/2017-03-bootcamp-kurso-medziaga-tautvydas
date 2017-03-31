@@ -1,0 +1,56 @@
+nav {
+	height: 60px;
+	width: 90%;
+	float: left;
+}
+h1 {
+	font-size: 42px;
+	color: #000;
+}
+nav h1 {
+	font-size: 24px;
+}
+.navbar-default {
+	color: #000;
+}
+.navbar-brand {
+	margin: 0;
+	padding: 0;
+}
+.navbar-header {
+	margin-top: 2px;
+	height: 60px;
+}
+.navbar-nav {
+	margin-top: 2px;
+}
+.home-txt {
+	height: 500px;
+}
+.home-text p {
+	word-wrap: break-word;
+}
+.reklama {
+	background: url('https://www.clearpointstrategy.com/wp-content/uploads/2015/03/Reporting-Tools-Software-The-4-Most-Crucial-Aspects.jpg') no-repeat center center;
+	background-size: cover;
+	height: 400px;
+}
+input[type="submit"] {
+	width: 125px;
+	height: 45px;
+	text-transform: uppercase;
+	font-weight: bold;
+	color: #fff;
+	background-color: #000;
+	margin-top: 188px;
+}
+.header-photo {
+	height: 60px;
+	width: 10%;
+	float: left;
+}
+.text {
+	margin-top: 50px;
+	height: 400px;
+}
+
