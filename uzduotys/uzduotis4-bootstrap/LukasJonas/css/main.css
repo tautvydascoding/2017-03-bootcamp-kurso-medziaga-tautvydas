@@ -1,0 +1,11 @@
+body {
+  width: 100%;
+}
+section {background-color: #bad;}
+
+.container-fluid {
+  background-color: #F0F0F1;
+}
+.row {
+  background-color: #F0F0F1;
+}
