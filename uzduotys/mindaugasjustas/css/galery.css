@@ -6,5 +6,20 @@ footer {
 }
 h1 {
 	text-align: center;
-	background-color: red;
+	background-color: #ef3b3b;
+}
+button {
+background-color: #dcdcf7;
+letter-spacing: 2px;
+margin-left: auto;
+
+}
+
+.button {
+    position: relative;
+    bottom: 50px;
+    right:80px;
+    width:150px;
+    height:30px;
+    margin-left: 80%;
 }
