@@ -33,9 +33,10 @@ h1 {
     margin: 25px;
 }
 .large-logo {
-   position: absolute;
+    position: absolute;
+    height: 105px;
     right: 15px;
-    top: 10px;
+    top: 00px;
 }
 .reklama {
   background: url(http://www.breakfree.lt/bundles/breakfree/images/new/rooms/pabegimo_kambarys_stebuklu_salis_vaikams.jpg) no-repeat ;
