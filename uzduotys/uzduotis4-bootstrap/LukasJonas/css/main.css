@@ -29,3 +29,42 @@ section {}
    padding: 0 !important;
    margin: 0 !important;
 }
+
+section {
+    background-color: #FAFAFA;
+}
+
+.container-fluid {
+    background-color: #c4c338;
+}
+
+img {
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+    color: red;
+}
+
+.logo {
+  text-align: left;
+}
+
+.foot {
+  background-color: #b4bb1d;
+}
+.tekstas {
+    background-color: #67eb10;
+    color: #fff;
+}
+
+footer {
+    background-color: #fff;
+    color: black;
+}
+
+.cha {
+  display: inline-block;
+  width: 50px;
+}
