@@ -1,11 +1,31 @@
 body {
-  width: 100%;
+    width: 100%;
 }
-section {background-color: #bad;}
 
-.container-fluid {
-  background-color: #F0F0F1;
+section {}
+
+
+/*.container-fluid {
+    background-color: #F0F0F1;
 }
+
 .row {
-  background-color: #F0F0F1;
+    background-color: #F0F0F1;
+}*/
+
+.ctaBox {
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1EwO-OcUp2ZTpjubUsiZPLm8RAej4XQLnKs5s3Ry5kAd8IEVT');
+    height: 300px;
+}
+
+.ctaButton {
+    position: relative;
+    top: 50%;
+    /*left: 50%;*/
+
+}
+
+.nopadding {
+   padding: 0 !important;
+   margin: 0 !important;
 }
