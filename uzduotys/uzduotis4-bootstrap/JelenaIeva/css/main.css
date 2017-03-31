@@ -2,59 +2,121 @@
     margin: 0;
     padding: 0;
 }
+
 body {
     font-family: 'Raleway', sans-serif;
 }
-.header
-{
-    background-color: #8c8c8c;
+
+.header {
+    background-color: #21252B;
     position: relative;
 }
+
 menu {
     margin-top: 19px;
 
 }
+
 menu .btn:last-child {
 
     margin-left: 30px;
 }
+
 .header-in-menu {
     float: left;
+    margin: 25px;
 }
+
 h2 {
-    font-weight: bolder;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 2% 0;
+    font-size: 50px;
+}
+.text-below-home {
+    display: block;
+    width: 50%;
+
 }
 h1 {
     text-align: center;
 }
+
 .small-logo {
     width: 10%;
-    margin: 20px;
+    margin: 25px;
 }
+
 .large-logo {
-   position: absolute;
+    position: absolute;
+    height: 145%;
     right: 15px;
-    top: 10px;
+    top: 0;
 }
+
 .reklama {
-  background: url(http://www.breakfree.lt/bundles/breakfree/images/new/rooms/pabegimo_kambarys_stebuklu_salis_vaikams.jpg) no-repeat ;
+    background: url(http://www.breakfree.lt/bundles/breakfree/images/new/rooms/pabegimo_kambarys_stebuklu_salis_vaikams.jpg) no-repeat;
     background-size: 100% auto;
-    width:100%;
+    width: 100%;
     height: 550px;
     margin: 50px 0;
     position: relative;
 }
+
 a.order {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
 a.order:hover {
     font-size: 25px;
     text-shadow: 4px 4px 2px rgba(65, 102, 102, 0.66);
     text-decoration: none;
 }
+
 .carousel {
     margin-bottom: 20px;
+}
+
+.tekstas p {
+    padding: 15% 3% 2% 3%;
+}
+
+.btn {
+    margin-bottom: 2%;
+}
+
+.galerija {
+    padding: 3% 0;
+}
+
+footer {
+    background-color: #21252B;
+}
+
+.logo {
+    padding: 5% 0;
+}
+
+.footer-menu {
+    margin-top: 5%;
+    padding: 5% 10%;
+}
+
+p {
+    text-align: center;
+}
+
+li, a {
+    color: #FEFEFE;
+}
+
+.Breakfree {
+    color: white;
+}
+
+.eile {
+    margin: 3% 0;
 }
