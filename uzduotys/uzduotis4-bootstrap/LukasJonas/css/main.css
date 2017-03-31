@@ -1,5 +1,5 @@
 section {
-    background-color: #bad;
+    background-color: #FAFAFA;
 }
 
 .container-fluid {
@@ -23,7 +23,7 @@ h1 {
 }
 
 .foot {
-  background-color: #b4bb1d;
+  background-color: #FFFFFF;
 }
 .tekstas {
     background-color: #67eb10;
@@ -61,10 +61,10 @@ section {}
 }
 
 .ctaButton {
-    position: relative;
+    position: absolute;
     top: 50%;
-    /*left: 50%;*/
-
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .nopadding {
@@ -72,6 +72,10 @@ section {}
    margin: 0 !important;
 }
 
-img {
-    width: 50%;
+.ad-content {
+  margin: 20px;
+}
+
+.container {
+  margin: 20px;
 }
