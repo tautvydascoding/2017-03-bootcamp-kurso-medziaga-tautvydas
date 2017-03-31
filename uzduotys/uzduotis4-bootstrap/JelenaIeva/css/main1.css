@@ -1,0 +1,41 @@
+h2 {
+    text-align: center;
+    margin: 2% 0;
+}
+
+.tekstas p {
+    padding: 15% 3% 2% 3%;
+}
+
+.btn {
+    margin-bottom: 2%;
+}
+
+.galerija {
+    padding: 3% 0;
+}
+
+footer {
+    background-color: #21252B;
+}
+
+.logo {
+    padding: 5% 0;
+}
+
+.footer-menu {
+    margin-top: 5%;
+    padding: 5% 10%;
+}
+
+p {
+    text-align: center;
+}
+
+.row {
+    margin: 3% 0;
+}
+
+li, a {
+    color: #FEFEFE;
+}
