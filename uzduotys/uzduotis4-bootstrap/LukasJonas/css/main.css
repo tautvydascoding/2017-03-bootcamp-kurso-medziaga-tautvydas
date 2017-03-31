@@ -1,31 +1,38 @@
-body {
+section {
+    background-color: #bad;
+}
+
+.container-fluid {
+    background-color: #c4c338;
+}
+
+img {
     width: 100%;
 }
 
-section {}
-
-
-/*.container-fluid {
-    background-color: #F0F0F1;
+h1 {
+    text-align: center;
+    color: red;
 }
 
-.row {
-    background-color: #F0F0F1;
-}*/
-
-.ctaBox {
-    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1EwO-OcUp2ZTpjubUsiZPLm8RAej4XQLnKs5s3Ry5kAd8IEVT');
-    height: 300px;
+.logo {
+  text-align: left;
 }
 
-.ctaButton {
-    position: relative;
-    top: 50%;
-    /*left: 50%;*/
-
+.foot {
+  background-color: #b4bb1d;
+}
+.tekstas {
+    background-color: #67eb10;
+    color: #fff;
 }
 
-.nopadding {
-   padding: 0 !important;
-   margin: 0 !important;
+footer {
+    background-color: #fff;
+    color: black;
+}
+
+.cha {
+  display: inline-block;
+  width: 50px;
 }
