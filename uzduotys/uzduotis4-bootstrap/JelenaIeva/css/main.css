@@ -7,7 +7,7 @@ body {
 }
 .header
 {
-    background-color: #8c8c8c;
+    background-color: #21252B;
     position: relative;
 }
 menu {
@@ -34,9 +34,9 @@ h1 {
 }
 .large-logo {
     position: absolute;
-    height: 105px;
+    height: 145%;
     right: 15px;
-    top: 00px;
+    top: 0;
 }
 .reklama {
   background: url(http://www.breakfree.lt/bundles/breakfree/images/new/rooms/pabegimo_kambarys_stebuklu_salis_vaikams.jpg) no-repeat ;
@@ -94,10 +94,12 @@ p {
     text-align: center;
 }
 
-.row {
-    margin: 3% 0;
-}
-
 li, a {
     color: #FEFEFE;
+}
+.Breakfree {
+  color: white;
+}
+.eile {
+  margin: 3% 0;
 }
