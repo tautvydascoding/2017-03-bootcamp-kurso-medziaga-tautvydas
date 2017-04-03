@@ -1,4 +1,4 @@
-
+ 
 body{
 background-color:#bbb;
 max-width:100%;
@@ -205,8 +205,6 @@ background-color: #0085c3;
 .clear-float{
 clear:both;
 }
-
-section { background-color: #bad; }
 
 .container-fluid {
   background-color: #f9f;
