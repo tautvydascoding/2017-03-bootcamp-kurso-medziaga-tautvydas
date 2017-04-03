@@ -1,7 +1,20 @@
 menu ul li {
     display: inline-block;
     text-transform: uppercase;
-    width: 30%;
-    text-align: right;
+    /*width: auto;*/
+    /*text-align: right;*/
     text-decoration: none;
+}
+.adverts {
+  position: relative;
+}
+.post-content {
+  background: 0 0 rgba(#ffffff, 0);
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+header {
+  background-color: rgb(0, 231, 254);
 }
