@@ -4,7 +4,6 @@
 <head>
     <meta charset="utf-8">
     <title>JS skaiciuotuvas</title>
-    <link src="main.js" type="text/java-script" />
     <link href="css/main.css" rel="stylesheet" type="text/css" />
 </head>
 
@@ -14,7 +13,7 @@
       <div id="calculator">
         <form>
             <fieldset>
-                <input class="js-screen" name="screen" disabled value="0" />
+                <input id="js-screen" name="screen"  value="0" disabled />
             </fieldset>
             <fieldset>
                 <input class="js-operator" type="button" name="AC" value="AC"/>
@@ -32,7 +31,7 @@
                 <input class="js-number" type="button" name="4" value="4"/>
                 <input class="js-number" type="button" name="5" value="5"/>
                 <input class="js-number" type="button" name="6" value="6"/>
-                <input class="js-operator" type="button" name="atimtis" value="-"/>
+                <input class="js-operator" type="button" name="atimtis" value="-" />
             </fieldset>
             <fieldset>
                 <input class="js-number" type="button" name="1" value="1"/>
@@ -42,12 +41,15 @@
             </fieldset>
             <fieldset>
                 <input class="js-number button-large" type="button" name="0" value="0"/>
-                <input class="js-operator"          type="button" name="kablelis" value="."/>
+                <input class="js-number"          type="button" name="kablelis" value=","/>
                 <input class="js-result"            type="button" name="rezultatas" value="="/>
             </fieldset>
         </form>
       </div>
     </section>
+    <footer>
+      <script  src="main.js" type="text/javascript">   </script>
+    </footer>
 </body>
 
 </html>
