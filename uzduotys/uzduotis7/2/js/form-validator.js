@@ -9,6 +9,16 @@
   function validateForm (event) {
     event.preventDefault(); // uzdraudzia HTML veiksla (submit From)
     printFromData();
+
+    if( formData.firstName.value === "" ||
+     formData.lastName.value === "" || formData.email.value === "" ) {
+
+      var errorMessage = document.createElement("div");
+      errorMessage.innerHTML = "<p>Please insert missing values.</p>";
+      // prie HTML formos prideda msusu eror zinute
+      form.appendChild(errorMessage);
+    }
+
   }
   function printFromData () {
     console.log("Duomenys . Vardas: ", formData.firstName.value,
