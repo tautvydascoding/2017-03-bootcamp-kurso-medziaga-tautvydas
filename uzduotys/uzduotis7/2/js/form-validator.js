@@ -13,10 +13,12 @@
     if( formData.firstName.value === "" ||
      formData.lastName.value === "" || formData.email.value === "" ) {
 
-      var errorMessage = document.createElement("div");
-      errorMessage.innerHTML = "<p>Please insert missing values.</p>";
-      // prie HTML formos prideda msusu eror zinute
-      form.appendChild(errorMessage);
+       if(!form.querySelector('.alert-warning')) { 
+          var errorMessage = document.createElement("div");
+          errorMessage.innerHTML = "<p class='alert-warning  alert'>Please insert missing values.</p>";
+          // prie HTML formos prideda msusu eror zinute
+          form.appendChild(errorMessage);
+       }
     }
 
   }
