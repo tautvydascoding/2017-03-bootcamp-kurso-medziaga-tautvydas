@@ -1,0 +1,19 @@
+body {
+  font-family: "Courier New", Courier, monospace;
+
+}
+
+#map {
+  border: 1px solid black;
+  height: 610px;
+  width: 600px;
+}
+
+#map {
+  line-height: 1em;
+  margin: 0;
+}
+
+#map div {
+  display: inline-block;
+}
