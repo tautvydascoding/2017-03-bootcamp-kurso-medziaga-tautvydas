@@ -32,3 +32,45 @@ spausdintiIKonsole(masinosBagazine);
 //
 // masinosBagazine.slice(2);
 // spausdintiIKonsoleSuKomentaru("iskroveme bagazine, pasilikome 2 daiktus",masinosBagazine);
+
+// pakeiciam bagazineje kastuva i kede
+// masinosBagazine[1] = "zvejybosKede";
+
+//====================== begame per visa masyva  naudodami FOR ============
+// for ( var i = 0; i < masinosBagazine.length; i++ ) {
+//    // i = 0 -> 1 -> 2 - >
+//    // tikriname kiekviena masyvo elementa
+//     if( masinosBagazine[i] === "gesintuvas") {
+//         masinosBagazine[i] = "zvejybosKede";
+//     }
+// }
+// spausdintiIKonsole(masinosBagazine);
+//  var i = 0;
+// while ( i < masinosBagazine.length ) {
+//   console.log(masinosBagazine[i]);
+//   i++;
+// }
+
+// var i = 0;
+// var visdarIeskome = true;
+// while ( visdarIeskome ) {
+//   console.log(masinosBagazine[i]);
+//   if( masinosBagazine[i] === "virve" ) {
+//     visdarIeskome = false;
+//     masinosBagazine[i] = "dovana";
+//   }
+//   i++;
+// }
+// spausdintiIKonsole(masinosBagazine);
+
+var i = 0;
+while ( true ) {
+  console.log(masinosBagazine[i]);
+  if( masinosBagazine[i] === "virve" ) {
+    masinosBagazine[i] = "dovana";
+    break;
+  }
+  i++; 
+
+}
+spausdintiIKonsole(masinosBagazine);
