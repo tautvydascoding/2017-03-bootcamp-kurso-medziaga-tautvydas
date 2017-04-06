@@ -53,14 +53,14 @@ function spausdintiIKonsoleSuKomentaru (komnetaras, info) {
 //      spausdintiIKonsoleSuKomentaru("nuo 0.31 iki 0.7 ", atsitiktinisSkaicius);
 // }
 
-// var atsitiktinisSkaicius = Math.random();
-// if(  atsitiktinisSkaicius > 0.5 ){
-//     miskas.temperatura = atsitiktinisSkaicius * 10;
-// } else  {
-//       miskas.temperatura = atsitiktinisSkaicius * -10;
-// }
-// spausdintiIKonsoleSuKomentaru("random: ", atsitiktinisSkaicius);
-// spausdintiIKonsoleSuKomentaru("Misko temperatura ", miskas.temperatura);
+var atsitiktinisSkaicius = Math.random();
+if(  atsitiktinisSkaicius > 0.5 ){
+    miskas.temperatura = atsitiktinisSkaicius * 10;
+} else  {
+      miskas.temperatura = atsitiktinisSkaicius * -10;
+}
+spausdintiIKonsoleSuKomentaru("random: ", atsitiktinisSkaicius);
+spausdintiIKonsoleSuKomentaru("Misko temperatura ", miskas.temperatura);
 
 
 // for()
@@ -86,9 +86,39 @@ function spausdintiIKonsoleSuKomentaru (komnetaras, info) {
 // while (darbuotojoPagamintosDetales.length < 100) {
 //     darbuotojoPagamintosDetales.push(  Math.floor(Math.random() * 100));
 // }
-spausdintiIKonsoleSuKomentaru("darbuotoju detale: ", darbuotojoPagamintosDetales);
+// spausdintiIKonsoleSuKomentaru("darbuotoju detale: ", darbuotojoPagamintosDetales);
 
-// darbuotojai suveda neteisingas reiksmes(panaudodami minusa)
+// darbuotojai suveda neteisingas reiksmes(panaudodami minusa) - kusime masyva 100 elementu
+var darbuotojoPagamintosDetales = new Array();
+for( var j = 0; darbuotojoPagamintosDetales.length < 100; j++ ) {
+  var atsitiktinisSkaicius =  Math.random()  ;
+  if(atsitiktinisSkaicius > 0.9) {
+    darbuotojoPagamintosDetales[j] = Math.floor( Math.random()*100) *-1;
+  } else {
+      darbuotojoPagamintosDetales[j] = Math.floor( Math.random()*100) ;
+  }
+}
+// spausdintiIKonsoleSuKomentaru("darbuotoju detale: ", darbuotojoPagamintosDetales);
+
+//   darbuotoju pagamintas detales paversime i teigiama skaiciu ir isvesime suma
+var visoPagamintaDetaliu = 0;
+for( var j = 0; j < darbuotojoPagamintosDetales.length ; j++ ) {
+  // ar darbuotojas suklydo
+  if(darbuotojoPagamintosDetales[j] < 0) {
+    visoPagamintaDetaliu += darbuotojoPagamintosDetales[j] * -1;
+  } else {
+    visoPagamintaDetaliu = visoPagamintaDetaliu + darbuotojoPagamintosDetales[j] ;
+  }
+}
+spausdintiIKonsoleSuKomentaru("Viso: ", visoPagamintaDetaliu);
+
+
+
+
+
+
+
+
 
 
 
