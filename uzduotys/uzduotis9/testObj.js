@@ -93,9 +93,9 @@ var darbuotojoPagamintosDetales = new Array();
 for( var j = 0; darbuotojoPagamintosDetales.length < 100; j++ ) {
   var atsitiktinisSkaicius =  Math.random()  ;
   if(atsitiktinisSkaicius > 0.9) {
-    darbuotojoPagamintosDetales[j] = Math.floor( Math.random()*100) *-1;
+    darbuotojoPagamintosDetales[j] = Math.floor( Math.random()*10000) *-1;
   } else {
-      darbuotojoPagamintosDetales[j] = Math.floor( Math.random()*100) ;
+      darbuotojoPagamintosDetales[j] = Math.floor( Math.random()*10000) ;
   }
 }
 // spausdintiIKonsoleSuKomentaru("darbuotoju detale: ", darbuotojoPagamintosDetales);
@@ -112,6 +112,21 @@ for( var j = 0; j < darbuotojoPagamintosDetales.length ; j++ ) {
 }
 spausdintiIKonsoleSuKomentaru("Viso: ", visoPagamintaDetaliu);
 
+
+// ieskome gelriausios darbuotojo numerio
+var i = 0,
+geriausiasDarbuotojas = 0,
+didziausiasSkaicius = 0;
+
+while( i < darbuotojoPagamintosDetales.length ) {
+  if( darbuotojoPagamintosDetales[i] > didziausiasSkaicius ){
+    geriausiasDarbuotojas = i;
+    didziausiasSkaicius = darbuotojoPagamintosDetales[i];
+  } 
+  i++;
+}
+spausdintiIKonsoleSuKomentaru("Viso: ",darbuotojoPagamintosDetales);
+console.log("geriausio numetis: ", geriausiasDarbuotojas);
 
 
 
