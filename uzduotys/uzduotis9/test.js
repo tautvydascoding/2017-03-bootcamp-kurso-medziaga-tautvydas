@@ -63,14 +63,13 @@ spausdintiIKonsole(masinosBagazine);
 // }
 // spausdintiIKonsole(masinosBagazine);
 
-var i = 0;
-while ( true ) {
-  console.log(masinosBagazine[i]);
-  if( masinosBagazine[i] === "virve" ) {
-    masinosBagazine[i] = "dovana";
-    break;
-  }
-  i++; 
-
-}
-spausdintiIKonsole(masinosBagazine);
+// var i = 0;
+// while ( true ) {
+//   console.log(masinosBagazine[i]);
+//   if( masinosBagazine[i] === "virve" ) {
+//     masinosBagazine[i] = "dovana";
+//     break;
+//   }
+//   i++;
+// }
+// spausdintiIKonsole(masinosBagazine);
