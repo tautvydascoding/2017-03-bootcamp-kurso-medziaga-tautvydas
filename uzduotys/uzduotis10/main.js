@@ -9,22 +9,18 @@ $(document).ready(function(){
     });
 
 
-    $('img').click(function() {
-      var that = this.cloneNode(true);
-      var parent = this.parentNode;
+    $('img').click(function() { 
+      // nusikopijuojame paspausta paveiksliuko Obj
+      // that - yra paveikslelio objekto kopija
+      var paveikslelioObjKopija = this.cloneNode(true);
+      var imgParent = this.parentNode;
 
-        //  parent.appendChild(that);
-        parent.insertBefore(that,this);
+      // i HTML idedame savo HTML elementa (paveikslelioObjKopija)
+        imgParent.insertBefore(paveikslelioObjKopija,this);
 
-// console.log( image );
-console.log(this.outerHTML);
-console.log(typeof(this.outerHTML));
-console.log(this.parentNode);
-console.log(typeof(this.parentNode));
-
-       $(that).css("position","absolute");
-       $(that).css("width","20%");
-       $(that).animate(  {
+       $(paveikslelioObjKopija).css("position","absolute");
+       $(paveikslelioObjKopija).css("width","20%");
+       $(paveikslelioObjKopija).animate(  {
             right: '50px',
             top: '50px',
             opacity: '0',
