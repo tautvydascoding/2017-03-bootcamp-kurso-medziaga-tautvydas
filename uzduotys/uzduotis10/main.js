@@ -1,47 +1,25 @@
-console.log("labukas");
+console.log("laba");
 
-var worker = {
-  name : "",
-  lname: "",
-  nr: 0,
-  items: 0
-};
-// visi darbuotojai masyvas  = new Array()
-var allWorkers = [];
-// allWorkers = [worker, worker2, ...]
-
-
-function print(text, aa) {
-  document.write(text, aa);
-}
-function printCon(text, aa) {
-  console.log(text, aa);
-}
+$(document).ready(function(){
 
 
 
-var names = ["Enriqueta", "Sybil", "Piper", "Anh", "Carmelo", "Regan", "Synthia", "Newton", "Norbert", "Krystyna", "Fidelia", "Christoper", "Lewis", "Jeromy", "Joy", "Lorri", "Owen", "Rosenda", "Devora", "Treva", "Leanora", "Meghann", "Jacqueline", "Bunny", "Tenisha", "Rico", "Clementina", "Samella", "Clemente", "Sandi", "Efrain", "Tena", "Vivan", "Hiedi", "Naida", "Evette", "Shane", "Freida", "Marielle", "Wynona", "Cheree", "Gaston", "Aja", "Timika", "Jude", "Griselda", "Luise", "Claudie", "Minh", "Warren"];
+    $('.fa-bars').click(function(){
+        $(".w3-display-container.w3-container > img").slideToggle(2000);
+    });
 
-var lastNames = ["Mcdowell", "Gates", "Mccall", "Cisneros", "Hancock", "Gaines", "Juarez", "Nolan", "Barajas", "Ware", "Orr", "Bell", "Donovan", "Rojas", "Stevenson", "Long", "Hays", "Gibson", "Meyer", "Sims", "Mcintosh", "Craig", "Haney", "Cunningham", "Hunt", "Montgomery", "Spears", "Cooke", "Gregory", "Mcknight", "Fernandez", "Hendrix", "Patton", "Bond", "Skinner", "Randolph", "Montes", "Guerra", "Bowen", "Potts", "Dyer", "Riley", "Rodgers", "Schroeder", "Ferguson", "Garrett", "Rush", "Moon", "Whitney", "Mcdaniel"];
+    $('img').click(function() {
+       $('img').css("position","absolute");
+       $('img').css("width","20%");
+       $('img').animate(  {
+            right: '50px',
+            top: '50px',
+            opacity: '0.5',
+            height: '150px',
+            width: '150px'
+          },5000);
+    });
 
-// === uzduotis: uzpildyti masyva objektais, kur objektas yra informacija paie darbuotoja (vardas, pavarde, nr, detaliuSkaicius)
-//begam per masyva
-for( var kk = 1; kk < 50; kk++){
-  // var worker = {}; // susikuriam objektas
-  var worker = {
-    name : names[kk],
-    lname: lastNames[kk],
-    nr: kk,
-    items: Math.floor( Math.random() * 100)
-  };
-  // worker.name = names[kk];
-  // worker.lname = lastNames[kk];
-  // worker.nr = kk;
-  // worker.items = Math.floor( Math.random() * 100);
 
-  // dedame darbuotojo obj i masyva
-  allWorkers[kk] = worker;
-}
 
-print("Visi darbuotojai: ", allWorkers );
-printCon("Visi darbuotojai: ", allWorkers );
+});
