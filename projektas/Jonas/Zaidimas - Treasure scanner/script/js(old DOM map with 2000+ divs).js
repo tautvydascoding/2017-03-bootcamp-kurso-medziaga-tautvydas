@@ -5,6 +5,10 @@ function getRandomIntInclusive(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+//how big the map will be: passed in to generateMap, hideTreasure
+var x = 71;
+var y = 43;
+
 var game = {
     map: [],
     generateMap: function(rows, columns) { //create 2d array
@@ -17,28 +21,11 @@ var game = {
         }
         this.map = arr;
     },
-    // Print the map, line by line
-    printMap: function() {
-        for (var i = 0; i < this.map.length; i++) {
-            console.log(this.map[i]);
-        }
-    },
-
-    // Print the map, cell by cell
-    printMapCell: function() {
-        this.map.forEach(function(line) {
-            var lineContent = '';
-            line.forEach(function(cell) {
-                lineContent = lineContent + cell + " ";
-            });
-            console.log(lineContent);
-        });
-    },
 
     hideTreasure: function() {
         //Pick a spot on the map at random and change it to say T instead of X
-        var treasureYCoord = getRandomIntInclusive(0, 10);
-        var treasureXCoord = getRandomIntInclusive(0, 10);
+        var treasureYCoord = getRandomIntInclusive(0, 43);
+        var treasureXCoord = getRandomIntInclusive(0, 71);
         this.map[treasureYCoord][treasureXCoord] = 'T'; // Y and X are reversed
     },
 
@@ -55,12 +42,12 @@ var game = {
     },
 
     convertMapArrayToHTML2: function() {
-      this.map.forEach(function(Y, index){ //takes each Y line of the map
+      this.map.forEach(function(yArray, index){ //takes each Y line of the map
         var yCoord = index;
-        Y.forEach(function(X, index){ //takes each cell on the X coord
+        yArray.forEach(function(xArray, index){ //takes each cell on the X coord
           var xCoord = index;
           var mapCell = document.createElement('div');
-          mapCell.innerHTML = X;
+          mapCell.innerHTML = xArray;
           mapCell.id = xCoord + ',' + yCoord;
           var mapDiv = document.querySelector('#map');
           mapDiv.appendChild(mapCell);
@@ -71,39 +58,15 @@ var game = {
 };
 
 
-
 // for testing
-game.generateMap(43,71);
-game.hideTreasure();
-game.convertMapArrayToHTML2();
-var map = document.querySelector("#map");
-var mapArray = game.map;
-console.log(mapArray[0][0])
-
-var mapCell = document.createElement('div')
-
-
-// line.innerHTML = game.map[4].join("") + "<br>"
+// game.generateMap(y,x);
+// game.hideTreasure();
+// game.convertMapArrayToHTML2();
+// var map = document.querySelector("#map");
+// var mapArray = game.map;
+// console.log(mapArray[0][0])
+//
+// var mapCell = document.createElement('div')
 
 
-
-
-
-
-
-
-
-
-
-
-// var view = {
-//   displayMap: function() {
-//     var mapElement = document.getElementById('map');
-//     var map = game.create2DArray(10,10);
-//     this.map.forEach(function(line){ // iterates passes each X-coord array into the next forEach loop
-//       line.forEach(function(cell){ // line is the X-coord array
-//         console.log(cell);
-//       });
-//     });
-//   }
-// };
+// index0 code

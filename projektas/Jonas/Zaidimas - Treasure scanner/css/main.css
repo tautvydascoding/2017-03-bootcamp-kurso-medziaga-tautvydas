@@ -3,17 +3,24 @@ body {
 
 }
 
-#map {
-  border: 1px solid black;
-  height: 610px;
-  width: 600px;
-}
 
 #map {
-  line-height: 1em;
-  margin: 0;
-}
-
-#map div {
   display: inline-block;
+}
+canvas {
+  margin-left: 15px;
+  margin-top: 15px;
+  display: inline-block;
+  border: 1px solid black;
+  display: inline-block;
+}
+
+#scannerDiv {
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 15px;
+}
+
+#coordDisplay {
+
 }
