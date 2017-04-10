@@ -49,22 +49,21 @@ var loots = {
 //    spausdinti("aaa");
 // }
 
- // $(document).ready(function() {
-    // atspausdinsime galerija
-    function spausdinti( ) {
-      // var gallery = $('.gallery');
-      // var img = document.createElement('div');
-      // img.innerHTML('  <img src="https://www.google.lt/search?q=img&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjksq7VvJnTAhVJD5oKHa0OAdMQ_AUICCgB&biw=1366&bih=638#" >');
-
-      var img = '<img src="https://placeimg.com/300/300/any" >';
-      $('.gallery').append(img);
-      isEnd = false;
+// ======= atspausdinsime galerija 
+function spausdinti() {
+      var img = ' \
+      <div class="col-lg-4 "  > \
+         <img class="img-responsive" src="https://placeimg.com/300/300/any" > \
+      </div> \
+      ';
+      $('.gallery').append(img);  // idedame savo HTML elementa i Galerija
     }
-    var isEnd = true;
-    while (isEnd) {
+    var isEnd = true,
+     tt = 0;
+    while ( tt < 21) {
        spausdinti( );
+       tt++;
     }
-// });
 
 
 
