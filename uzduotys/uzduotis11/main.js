@@ -49,7 +49,7 @@ var loots = {
 //    spausdinti("aaa");
 // }
 
-// ======= atspausdinsime galerija 
+// ======= atspausdinsime galerija
 function spausdinti() {
       var img = ' \
       <div class="col-lg-4 "  > \
@@ -65,8 +65,22 @@ function spausdinti() {
        tt++;
     }
 
+// ===== for for
 
+var matrica = [];
+  matrica[0] = ["Vardas","Pavarde","1900/01/00", 150, 321314564631];
+  matrica[1] = ["Vardas1","Pavarde1","1900/01/01", 151, 3213145646311];
+  matrica[2] = ["Vardas2","Pavarde2","1900/01/02", 152, 3213145646322];
+  matrica[3] = ["Vardas3","Pavarde3","1900/01/03", 153, 3213145646333];
+  matrica[4] = ["Vardas4","Pavarde4","1900/01/04", 154, 3213145646344];
 
+for ( var gg = 0; gg < matrica.length; gg ++) {
+  for (var ss = 0; ss < matrica[gg].length; ss ++) {
+    console.log(" | ", matrica[gg][ss], " | ");
+    document.write(" | ", matrica[ss][gg], " | ");
+  }
+  document.write(" </br> ");
+}
 
 
 
