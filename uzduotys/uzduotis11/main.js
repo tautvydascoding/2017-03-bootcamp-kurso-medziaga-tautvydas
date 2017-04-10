@@ -82,7 +82,10 @@ for ( var gg = 0; gg < matrica.length; gg ++) {
   document.write(" </br> ");
 }
 
+// == for ciklas mazinant i
 
-
-
-a
+var zmogus = ["Vardas","Pavarde","1900/01/00", 150, 321314564631];
+for( var i = zmogus.length - 1; i >= 0; i--) {
+  console.log(zmogus[  i ]); // atvaizduoja atbulai
+  // console.log(zmogus[  (i-zmogus.length+1)*-1  ]); // atvaizduoja is pradziu
+}
