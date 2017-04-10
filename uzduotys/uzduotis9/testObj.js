@@ -122,34 +122,8 @@ while( i < darbuotojoPagamintosDetales.length ) {
   if( darbuotojoPagamintosDetales[i] > didziausiasSkaicius ){
     geriausiasDarbuotojas = i;
     didziausiasSkaicius = darbuotojoPagamintosDetales[i];
-  } 
+  }
   i++;
 }
 spausdintiIKonsoleSuKomentaru("Viso: ",darbuotojoPagamintosDetales);
 console.log("geriausio numetis: ", geriausiasDarbuotojas);
-
-
-
-
-
-
-
-
-
-
-
-// copy objekta
-// var Onute =   Object.assign({}, veikejas); //The Object.assign() method is used to copy the values of all enumerable own properties from one or more source objects to a target object.
-// Onute.vardas = "Rima";
-// veikejas.vardas = "Arturas";
-// spausdintiIKonsoleSuKomentaru("Onute  : ", Onute);
-// spausdintiIKonsoleSuKomentaru("veikejas  : ", veikejas);
-
-// === kitas budas OBJ kopijoms
-
-// function Zmogus(vardas, ugis, amzius) {
-//     this.vard = vardas;
-//     this.aukstis = ugis;
-//     this.amz = amzius;
-// }
-// var myFather = new Zmogus("Tautvydass",   150, 23);
