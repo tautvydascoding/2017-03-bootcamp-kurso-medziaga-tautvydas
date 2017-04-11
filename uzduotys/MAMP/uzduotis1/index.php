@@ -50,6 +50,27 @@ switch ($i) {
 
 include ("header.html");
 
+$gyvunai = ["313adfsad" => "antis", "meska", "vilkas","drakonas"];
+foreach ($gyvunai as $gyvunas) {
+  echo "Gyvuno pavadinimas: $gyvunas  <br />  ";
+}
+print_r($gyvunai);
+
+echo "<br />";
+
+$myfile = fopen("webdictionary.txt", "r") or die("Unable to open file!");
+// Output one line until end-of-file
+while(!feof($myfile)) {
+  echo fgets($myfile) . "<br>";
+}
+fclose($myfile);
+
+
+
+
+
+
+
 
 
  ?>
