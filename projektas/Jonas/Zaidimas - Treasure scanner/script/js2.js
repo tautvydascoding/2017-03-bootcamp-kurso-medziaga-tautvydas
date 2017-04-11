@@ -6,6 +6,18 @@
 // nested functions http://stackoverflow.com/questions/9234769/returning-a-value-from-a-nested-function-to-its-parent-without-using-a-callback
 // returning multiple values http://stackoverflow.com/questions/2917175/return-multiple-values-in-javascript
 
+//Extend Array prototype so I can compare two arrays for common things (to see if two scanners see the same )
+// Array.prototype.diff = function(arr2) {
+//     var ret = [];
+//     this.sort();
+//     arr2.sort();
+//     for(var i = 0; i < this.length; i += 1) {
+//         if(arr2.indexOf( this[i] ) > -1){
+//             ret.push( this[i] );
+//         }
+//     }
+//     return ret;
+// };
 
 //get random numbers, so you can hide the treasure later
 function getRandomIntInclusive(min, max) {
@@ -14,16 +26,23 @@ function getRandomIntInclusive(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+//check if value is in array, duh.
+function isInArray(value, array) {
+  return array.indexOf(value) > -1;
+}
+
 game = {
     mapWidthX: "700", //defaults here, should be able to set them up in game setup, or per level
     mapHeightY: "500",
     treasures: [],
     scanners: [],
+    scannerOverlapList: [],
     hideTreasure: function() {
         var treasure = {
             x: null,
             y: null,
             radius: 5,
+            seenByScanners: [],
         };
         treasure.x = getRandomIntInclusive(0, this.mapWidthX);
         treasure.y = getRandomIntInclusive(0, this.mapHeightY);
@@ -36,13 +55,30 @@ game = {
                 name: "scanner",
                 radius: 100,
                 active: false,
-                treasureInRange: false,
+                treasuresInRange: false,
+                whichTreasuresInRange: [],
+                // iterates over the treasures list
+                //measures the distance between this scanner and each treasure
+                // if it's in range, notes which treasures this scanner can see
+                // This function is run whenever the scanner is moved.
                 lookForTreasure: function() {
-                  game.treasures.forEach(function(currentValue, index){
-                    var distanceBetweenTreasureAndScanner = game.returnDistance(currentValue, this);
+                  this.whichTreasuresInRange = [];
+                  game.treasures.forEach(function(currentTreasure, treasureNumber){
+                    var distanceBetweenTreasureAndScanner = game.returnDistance(currentTreasure, this);
                     if (distanceBetweenTreasureAndScanner < this.radius) {
                       this.treasureInRange = true;
-                      console.log("TreasureInRange");
+                      this.whichTreasuresInRange.push(treasureNumber);
+                      game.treasures[treasureNumber].seenByScanners.push(game.scanners.indexOf(this));
+                      console.log("Treasure is in range");
+                      // do other scanners see it?
+                    } else {
+                      var indexOfScanner = game.treasures[treasureNumber].seenByScanners.indexOf(game.scanners.indexOf(this));
+                      console.log(indexOfScanner);
+                      if (indexOfScanner > -1) { //if the scanner had previously seen this specific treasure
+                        game.treasures[treasureNumber].seenByScanners.splice(indexOfScanner, 1);
+                      }
+                      this.treasureInRange = false;
+                      console.log("No treasure in range");
                     }
                   }, this);
                 }
@@ -61,6 +97,8 @@ game = {
     repositionScanner: function(scannerNumber,newX,newY){
       this.scanners[scannerNumber].x = newX;
       this.scanners[scannerNumber].y = newY;
+      this.scanners[scannerNumber].lookForTreasure();
+
       view.drawMap();
     },
 
@@ -128,6 +166,13 @@ view = {
       context.clearRect(0, 0, canvas.width, canvas.height);
       allShapes.forEach(function(currentValue, index) {
         this.drawCircle(allShapes[index].x, allShapes[index].y, allShapes[index].radius);
+        if (allShapes[index].treasureInRange === true) {
+          context.fillStyle = "#00ff00";
+          context.fill();
+        } else {
+          context.fillStyle = "#FAFAFA";
+          context.fill();
+        }
       }, this);
     },
 };
