@@ -65,6 +65,7 @@ game = {
                   this.whichTreasuresInRange = [];
                   game.treasures.forEach(function(currentTreasure, treasureNumber){
                     var distanceBetweenTreasureAndScanner = game.returnDistance(currentTreasure, this);
+                    var seenByScanners = game.treasures[treasureNumber].seenByScanners; // array that tracks which scanners see this treasure
                     if (distanceBetweenTreasureAndScanner < this.radius) {
                       this.treasureInRange = true;
                       this.whichTreasuresInRange.push(treasureNumber);
@@ -72,7 +73,7 @@ game = {
                       console.log("Treasure is in range");
                       // do other scanners see it?
                     } else {
-                      var indexOfScanner = game.treasures[treasureNumber].seenByScanners.indexOf(game.scanners.indexOf(this));
+                      var indexOfScanner = game.treasures[treasureNumber].seenByScanners.indexOf(game.scanners.indexOf(this)); //holy fuck
                       console.log(indexOfScanner);
                       if (indexOfScanner > -1) { //if the scanner had previously seen this specific treasure
                         game.treasures[treasureNumber].seenByScanners.splice(indexOfScanner, 1);
