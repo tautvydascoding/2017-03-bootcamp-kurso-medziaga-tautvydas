@@ -1,12 +1,13 @@
 <?php
 // phpinfo();
 
-
 require 'lib/PHPMailer-master/PHPMailerAutoload.php';
 
 $mail = new PHPMailer;
 
-var_dump ($mail);
+echo "Laiskas isiustas";
+
+// var_dump ($mail);
 
 //$mail->SMTPDebug = 3;                               // Enable verbose debug output
 

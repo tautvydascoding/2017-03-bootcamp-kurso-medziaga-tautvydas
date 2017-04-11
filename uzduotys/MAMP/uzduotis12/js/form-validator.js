@@ -7,7 +7,7 @@
       email:  document.querySelector('input[name="email"]')
   };
   function validateForm (event) {
-    event.preventDefault(); // uzdraudzia HTML veiksla (submit From)
+    //event.preventDefault(); // uzdraudzia HTML veiksla (submit From)
     printFromData();
 
     if( formData.firstName.value === "" ||
@@ -19,7 +19,7 @@
           // prie HTML formos prideda msusu eror zinute
           form.appendChild(errorMessage);
        }
-    } 
+    }
   }
   function printFromData () {
     console.log("Duomenys . Vardas: ", formData.firstName.value,
