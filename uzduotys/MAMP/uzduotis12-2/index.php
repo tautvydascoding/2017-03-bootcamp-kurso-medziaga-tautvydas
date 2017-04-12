@@ -3,10 +3,11 @@
     <title>Class and Object Methods</title>
   </head>
   <body>
+
     <h1> Testuojame PHP OBJ</h1>
     <p>
       <?php
-       $name = 132;
+        $name = "uz klases - globalus";
 
         class Person {
           public $isAlive = true;
@@ -15,7 +16,6 @@
 
           // konstruktorius 1 budas
           public function Person ($vardas = "Neturiu" ) {
-            // $name = $vardas;
               $this->name = $vardas;
               echo "<br>".$this->name."<br>";
           }
@@ -25,7 +25,8 @@
           //     echo "<br>".$name."<br>";
           // }
           public function dance() {
-            echo "name: $name";
+            global $name; // skirtas pasiekti kintamuosius uz klases rimu
+            echo "name:  $name";
             return "I'm dancing!";
           }
         }
@@ -37,13 +38,30 @@
         $vardas = $me->name;
         echo "vardas: ".$vardas."<br />";
         $me->name = "Povilas";
-        echo "vardas: ".$vardas."<br />";
+        echo "vardas2: ".$vardas."<br />";
 
         $me->dance();
 
-        // echo "me  aaa: ". $me->$aaa;
-        // echo "<br />";
-        // echo "you \$aaa: $you->$aaa";
+        $pavarde = "";
+        $pavarde = "pakraktauskai";
+
+
+        $a = 1;
+        $b = 2;
+
+        // deklaravus globalisu kintamuosius galima su jais atlikti veiksmus ir keisti ju reiksmes
+        function Sum() {
+            global $a, $b;
+            $b = $a + $b;
+        }
+        Sum();
+        echo $b;
+
+        echo "<br />";
+
+        // saugo visus globalius masyvus ($_SESSION, $_POST) ir musu blobalisu kintamuosisu
+        // print_r ($GLOBALS);
+
 
 
       ?>
