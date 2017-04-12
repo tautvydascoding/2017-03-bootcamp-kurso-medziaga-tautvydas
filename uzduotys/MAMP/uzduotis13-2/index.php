@@ -13,6 +13,7 @@
 
           class human {
             private $name = "";
+              private $namel = "";
 
             public function setName ($n) {
                $this->name = $n;
@@ -21,7 +22,7 @@
               return $this->name;
             }
           }
-          $man = new human; // kuriame OBJ
+          $man = new human; // kuriame OBJ 
           // $man->name = "Kastytis K.";  // neveikai, nes bandome pasiekti private kintamaji
           // echo $man->getName();
           $man->setName("Timis");
