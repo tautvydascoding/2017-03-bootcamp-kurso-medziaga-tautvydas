@@ -32,8 +32,8 @@ function isInArray(value, array) {
 }
 
 game = {
-    mapWidthX: "700", //defaults here, should be able to set them up in game setup, or per level
-    mapHeightY: "500",
+    mapWidthX: "900", //defaults here, should be able to set them up in game setup, or per level
+    mapHeightY: "700",
     treasures: [],
     scanners: [],
     scannerOverlapList: [],
@@ -41,7 +41,7 @@ game = {
         var treasure = {
             x: null,
             y: null,
-            radius: 5,
+            radius: 0,
             seenByScanners: [],
         };
         treasure.x = getRandomIntInclusive(0, this.mapWidthX);
@@ -152,6 +152,7 @@ view = {
       });
     },
     drawCircle: function(x, y, radius) { //ctx - "context", where things get drawn
+        context.globalAlpha = 0.33;
         context.beginPath();
         context.arc(x, y, radius, 0, 2 * Math.PI);
         context.stroke();
@@ -168,7 +169,7 @@ view = {
       allShapes.forEach(function(currentValue, index) {
         this.drawCircle(allShapes[index].x, allShapes[index].y, allShapes[index].radius);
         if (allShapes[index].treasureInRange === true) {
-          context.fillStyle = "#00ff00";
+          context.fillStyle = "#000000"; //#ED2939
           context.fill();
         } else {
           context.fillStyle = "#FAFAFA";
