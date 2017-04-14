@@ -70,9 +70,9 @@
       // $Marija->sumazintiEstro(); // privaciu funkciju neiseina issaukti!
 
 
+      
 
 
- 
      ?>
 
   </body>
