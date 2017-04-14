@@ -1,0 +1,102 @@
+html, body {
+	height: 100%;
+}
+body {
+  font-size: 16px;
+  background-image: url("assets/background.jpg");
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  background-position: right bottom;
+  min-height: 100%;
+  margin: 0;
+}
+
+
+h1 {
+    font-family: 'Press Start 2P', cursive;
+	position: absolute;
+	top: 200px;
+	font-size: 50px;
+	float: left;
+}
+h2 {
+
+    font-family: 'Bangers', cursive;
+	position: absolute;
+	top: 250px;
+}
+.content-float {
+	text-align: left;
+	margin-bottom: 10px;
+	margin-top: 0px;
+	padding-left: 60px;
+}
+.inner-content {
+	text-align: center;
+	top: 300px;
+	position: absolute;
+	padding-left: 20px;
+
+
+}
+input[type="submit"] {
+  padding: 15px 80px;
+  text-transform: uppercase;
+  border: 1px solid #000000;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  color: #ffffff;
+  background-color: #000000;
+}
+
+.inner-content {
+  max-width: 400px;
+}
+
+.full-width {
+ 	 width: 97%;
+}
+
+.first-input {
+  margin-right: 9%;
+}
+input {
+  border: none;
+  border-bottom-width: 1px;
+  background-color: transparent;
+  margin-bottom: 20px;
+  padding: 10px;
+  padding-left: 0;
+  border-bottom: 1px solid #000;
+}
+
+/*.background {
+	 background-size: 900px;
+	 width: 100%;
+	 min-height: 100%;
+ 	 background-size: auto 100%;
+ 	 background-repeat: no-repeat;
+ 	 min-height: 100%;
+ 	 background-color: white;
+ 	 position: right-bottom;
+}*/
+.logo {
+	padding-top: 10px;
+	position: absolute;
+	top: 100px;
+	padding-left: 45px;
+	}
+
+h1 {
+  text-transform: uppercase;
+  font-weight: 420;
+  font-size: 1.1em;
+}
+.innercontent {
+	background-color: white;
+}
+form {
+	background-color: rgba(255, 255, 255, 0.5);
+}
