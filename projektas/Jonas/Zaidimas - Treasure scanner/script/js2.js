@@ -28,7 +28,7 @@ function getRandomIntInclusive(min, max) {
 
 //check if value is in array, duh.
 function isInArray(value, array) {
-  return array.indexOf(value) > -1;
+    return array.indexOf(value) > -1;
 }
 
 game = {
@@ -36,57 +36,77 @@ game = {
     mapHeightY: "700",
     treasures: [],
     scanners: [],
-    scannerOverlapList: [],
+    cargoHold: [{
+        name: "Intact armor plates",
+        isVisible: true
+    }],
     hideTreasure: function() {
         var treasure = {
             x: null,
             y: null,
+            name: "signature",
+            index: this.treasures.length,
             radius: 0,
             seenByScanners: [],
+            isVisible: false,
+            isItVisible: function() {
+                if (this.seenByScanners.length > 0) {
+                    this.isVisible = true;
+                } else {
+                    this.isVisible = false;
+                }
+            },
         };
-        treasure.x = getRandomIntInclusive(0, this.mapWidthX);
-        treasure.y = getRandomIntInclusive(0, this.mapHeightY);
+        treasure.x = getRandomIntInclusive(this.mapWidthX * 0.1, this.mapWidthX * 0.9);
+        treasure.y = getRandomIntInclusive(this.mapHeightY * 0.1, this.mapHeightY * 0.9);
+        treasure.name += this.treasures.length;
         this.treasures.push(treasure);
+
     },
     createScanner: function() {
         var scanner = {
-                x: 0,
-                y: 0,
-                name: "scanner",
-                radius: 100,
-                active: false,
-                treasuresInRange: false,
-                whichTreasuresInRange: [],
-                // iterates over the treasures list
-                //measures the distance between this scanner and each treasure
-                // if it's in range, notes which treasures this scanner can see
-                // This function is run whenever the scanner is moved.
-                lookForTreasure: function() {
-                  this.whichTreasuresInRange = [];
-                  game.treasures.forEach(function(currentTreasure, treasureNumber){
-                    var distanceBetweenTreasureAndScanner = game.returnDistance(currentTreasure, this);
+            x: 0,
+            y: 0,
+            name: "scanner",
+            radius: 100,
+            active: false,
+            isVisible: true, //currently needed to see if signatures are visible and should be printed. All scanners visible by default, all treasures - not
+            treasuresInRange: false,
+            whichTreasuresInRange: [],
+            // iterates over the treasures list
+            //measures the distance between this scanner and each treasure
+            // if it's in range, notes which treasures this scanner can see
+            // This function is run whenever the scanner is moved.
+            lookForTreasure: function() {
+                this.whichTreasuresInRange = []; // resets visible treasure array
+                game.treasures.forEach(function(currentTreasure, treasureNumber) {
+                    var distance = game.returnDistance(currentTreasure, this);
                     var seenByScanners = game.treasures[treasureNumber].seenByScanners; // array that tracks which scanners see this treasure
-                    if (distanceBetweenTreasureAndScanner < this.radius) {
-                      this.treasureInRange = true;
-                      this.whichTreasuresInRange.push(treasureNumber);
-                      game.treasures[treasureNumber].seenByScanners.push(game.scanners.indexOf(this));
-                      console.log("Treasure is in range");
-                      // do other scanners see it?
+                    if (distance < this.radius) { // sees if distance between treasure and scanner is smaller than the scanner's radius
+                        this.whichTreasuresInRange.push(treasureNumber);
+                        seenByScanners.push(game.scanners.indexOf(this));
                     } else {
-                      var indexOfScanner = game.treasures[treasureNumber].seenByScanners.indexOf(game.scanners.indexOf(this)); //holy fuck
-                      console.log(indexOfScanner);
-                      if (indexOfScanner > -1) { //if the scanner had previously seen this specific treasure
-                        game.treasures[treasureNumber].seenByScanners.splice(indexOfScanner, 1);
-                      }
-                      this.treasureInRange = false;
-                      console.log("No treasure in range");
+                        var indexOfScanner = seenByScanners.indexOf(game.scanners.indexOf(this)); //holy fuck
+                        console.log(indexOfScanner);
+                        if (indexOfScanner > -1) { //if the scanner had previously seen this specific treasure
+                            seenByScanners.splice(indexOfScanner, 1);
+                        }
                     }
-                  }, this);
+                    game.treasures[treasureNumber].isItVisible();
+                    view.printElements('#treasureList', game.treasures);
+                }, this);
+                if (this.whichTreasuresInRange.length > 0) {
+                    this.treasureInRange = true;
+                    console.log("Treasure is in range");
+                } else {
+                    this.treasureInRange = false;
+                    console.log("No treasure in range");
                 }
-            };
+            }
+        };
         scanner.name += this.scanners.length;
         this.scanners.push(scanner);
-        view.printScanners();
+        view.printElements('#scannerList', this.scanners);
     },
     returnDistance: function(obj1, obj2) { //expects two objects a and b that each have keys x and y
 
@@ -95,13 +115,27 @@ game = {
         var c = Math.sqrt(a * a + b * b);
         return c;
     },
-    repositionScanner: function(scannerNumber,newX,newY){
-      this.scanners[scannerNumber].x = newX;
-      this.scanners[scannerNumber].y = newY;
-      this.scanners[scannerNumber].lookForTreasure();
+    repositionScanner: function(scannerNumber, newX, newY) {
+        this.scanners[scannerNumber].x = newX;
+        this.scanners[scannerNumber].y = newY;
+        this.scanners[scannerNumber].lookForTreasure();
 
-      view.drawMap();
+        view.drawMap();
     },
+    loot: function(signatureObject) {
+      var recheckTheseScanners = signatureObject.seenByScanners.slice(0); //copies the array
+        // recheckTheseScanners.join(signatureObject.seenByScanners);
+        // console.log(recheckTheseScanners); //array of scanner numbers
+      this.cargoHold.push({name:signatureObject.name, isVisible: true});
+      this.treasures.splice(this.treasures.indexOf(signatureObject), 1);
+      recheckTheseScanners.forEach(function(scannerNumber){
+        game.scanners[scannerNumber].lookForTreasure(); // to check if they still see any signatures and should remain turned on;
+      });
+      view.drawMap();
+      view.printElements('#treasureList', game.treasures);
+      view.printElements('#cargoList', game.cargoHold);
+    },
+
 
 };
 
@@ -138,18 +172,19 @@ view = {
         var mapDiv = document.querySelector("#map");
         var mapCanvas = view.createHiDPICanvas(game.mapWidthX, game.mapHeightY, 4);
         mapDiv.appendChild(mapCanvas);
-
     },
-    printScanners: function() {
-      var ul = document.querySelector('#scannerList');
-      ul.innerHTML = '';
-      game.scanners.forEach(function(currentValue, index){
-        var li = document.createElement('li');
-        li.innerHTML = game.scanners[index].name;
-        li.id = index;
-        li.className = "scannerItem" + " scanner" + index;
-        ul.appendChild(li);
-      });
+    printElements: function(id, array) { //scanners and signatures id - which div it should go in; array - which game.* array element comes from
+        var ul = document.querySelector(id);
+        ul.innerHTML = '';
+        array.forEach(function(currentValue, index) {
+            if (array[index].isVisible) {
+                var li = document.createElement('li');
+                li.innerHTML = array[index].name;
+                li.id = index;
+                li.className = "scannerItem" + " scanner" + index;
+                ul.appendChild(li);
+            }
+        });
     },
     drawCircle: function(x, y, radius) { //ctx - "context", where things get drawn
         context.globalAlpha = 0.33;
@@ -158,102 +193,126 @@ view = {
         context.stroke();
     },
     drawScanners: function() {
-      game.scanners.forEach(function(currentValue, index){
-        view.drawCircle(game.scanners[index].x, game.scanners[index].y, game.scanners[index].radius);
-      });
+        game.scanners.forEach(function(currentValue, index) {
+            view.drawCircle(game.scanners[index].x, game.scanners[index].y, game.scanners[index].radius);
+        });
     },
     drawMap: function() {
 
-      var allShapes = game.treasures.concat(game.scanners);
-      context.clearRect(0, 0, canvas.width, canvas.height);
-      allShapes.forEach(function(currentValue, index) {
-        this.drawCircle(allShapes[index].x, allShapes[index].y, allShapes[index].radius);
-        if (allShapes[index].treasureInRange === true) {
-          context.fillStyle = "#000000"; //#ED2939
-          context.fill();
-        } else {
-          context.fillStyle = "#FAFAFA";
-          context.fill();
-        }
-      }, this);
+        var allShapes = game.treasures.concat(game.scanners);
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        allShapes.forEach(function(currentValue, index) {
+            this.drawCircle(allShapes[index].x, allShapes[index].y, allShapes[index].radius);
+            if (allShapes[index].treasureInRange === true) {
+                context.fillStyle = "#000000"; //#ED2939
+                context.fill();
+            } else {
+                context.fillStyle = "#FAFAFA";
+                context.fill();
+            }
+        }, this);
     },
 };
 
-
 control = {
-  currentScanner: 0,
-  setUpCoordReporter: function(canvasElement) { // pass in a variable that points to canvas element in HTML
-      var that = this;
-      function displayCursorPosition(event) {
-          // var x = event.pageX - rect.left.toFixed() + 1; //atrodo, kad getBoundingClientRect() yra vienu pixeliu didesnis, nei Canvas pradžia. IDK why, hope it doesn't ruin anything later
-          // var y = event.pageY - rect.top.toFixed() + 1;
-          var x = event.pageX - canvasElement.offsetLeft; //atrodo, kad getBoundingClientRect() yra vienu pixeliu didesnis, nei Canvas pradžia. IDK why, hope it doesn't ruin anything later
-          var y = event.pageY - canvasElement.offsetTop;
-          var coordDisplay = document.querySelector('#coordDisplay');
-          if (x >= 0 && y >= 0) {
-            coordDisplay.innerHTML = "x: " + x + " y: " + y;
-            return [x,y];
-        } else {return [0,0];}
-      }
+    currentScanner: 0,
+    changeSelectedScanner: function() {},
+    setUpCoordReporter: function(canvasElement) { // pass in a variable that points to canvas element in HTML
+        var that = this;
 
-      function moveCurrentlySelectedScanner(event) {
-
-        var cursorPos = displayCursorPosition;
-        // game.repositionScanner(this.currentScanner, cursorPos(event)[0], cursorPos(event)[1]);
-        game.repositionScanner(that.currentScanner, cursorPos(event)[0], cursorPos(event)[1]); // currentScanner doesn't work with this, because this is a nested function. cursorPos 0 and 1 are x and Y values from above
-        view.drawScanners();
-      }
-
-      var returnXY = displayCursorPosition;
-      // canvasElement.addEventListener('click', function(event){console.log(returnXY(event));});
-      canvasElement.addEventListener('click', function(event){
-        moveCurrentlySelectedScanner(event);
-      });
-      canvasElement.addEventListener('mousemove', displayCursorPosition);
-  },
-
-
-
-  selectScanner: function(number){
-    // might need to refactor the function below to be able to set up more event listeners. or do them all in one fell swoop :)
-    // this'll take some doing... need to visualize the available buttons and UI.
-  },
-
-  setUpEventListeners: function() {
-      // to be able to select Scanners from the list by clicking
-      var scannerList = document.querySelector('#scannerList');
-      scannerList.addEventListener('click', function(event){
-        var elementClicked = event.target;
-        var currentSelected = document.querySelector(".scanner"+control.currentScanner); // selecting by class, because ID is just a number for the next part of the function; CSS doesn't like IDs that start with a number
-        if (elementClicked.className.includes("scannerItem")){ //includes because I need the className to have the index for the line above; and the id has to just be a number to make the JS work better in the below if statement
-          currentSelected.style.fontWeight = "normal";
-          elementClicked.style.fontWeight = "bold";
-          control.currentScanner = parseInt(elementClicked.id);
-          console.log("The selected scanner is: " + elementClicked.id);
+        function displayCursorPosition(event) {
+            // var x = event.pageX - rect.left.toFixed() + 1; //atrodo, kad getBoundingClientRect() yra vienu pixeliu didesnis, nei Canvas pradžia. IDK why, hope it doesn't ruin anything later
+            // var y = event.pageY - rect.top.toFixed() + 1;
+            var x = event.pageX - canvasElement.offsetLeft; //atrodo, kad getBoundingClientRect() yra vienu pixeliu didesnis, nei Canvas pradžia. IDK why, hope it doesn't ruin anything later
+            var y = event.pageY - canvasElement.offsetTop;
+            var coordDisplay = document.querySelector('#coordDisplay');
+            if (x >= 0 && y >= 0) {
+                coordDisplay.innerHTML = "x: " + x + " y: " + y;
+                return [x, y];
+            } else {return [0, 0];}
         }
-      });
-  },
 
+        function moveCurrentlySelectedScanner(event) {
+            var cursorPos = displayCursorPosition;
+            // game.repositionScanner(this.currentScanner, cursorPos(event)[0], cursorPos(event)[1]);
+            game.repositionScanner(that.currentScanner, cursorPos(event)[0], cursorPos(event)[1]); // currentScanner doesn't work with this, because this is a nested function. cursorPos 0 and 1 are x and Y values from above
+            view.drawScanners();
+        }
+        var returnXY = displayCursorPosition;
+        // canvasElement.addEventListener('click', function(event){console.log(returnXY(event));});
+        canvasElement.addEventListener('click', function(event) {
+            moveCurrentlySelectedScanner(event);
+        });
+        canvasElement.addEventListener('mousemove', displayCursorPosition);
+
+        canvas.addEventListener("click", function(e) {
+            var clickCoords = {
+                x: e.pageX - canvasElement.offsetLeft,
+                y: e.pageY - canvasElement.offsetTop
+            };
+            game.treasures.forEach(function(signatureObject){
+              var distance = game.returnDistance(clickCoords, signatureObject);
+              if (10 < distance && distance < 20) {console.log("Getting warm");}
+              if (distance <= 10) {console.log("You got it, baby!"); game.loot(signatureObject);}
+          });
+        });
+    },
+    setUpEventListeners: function() {
+        // to be able to select Scanners from the list by clicking
+        var scannerList = document.querySelector('#scannerList');
+        scannerList.addEventListener('click', function(event) {
+            event.stopPropagation(); // does this make my page faster?
+            var elementClicked = event.target;
+            var currentSelected = document.querySelector(".scanner" + control.currentScanner); // selecting by class, because ID is just a number for the next part of the function; CSS doesn't like IDs that start with a number
+            if (elementClicked.className.includes("scannerItem")) { //includes because I need the className to have the index for the line above; and the id has to just be a number to make the JS work better in the below if statement
+                currentSelected.style.fontWeight = "normal";
+                elementClicked.style.fontWeight = "bold";
+                control.currentScanner = parseInt(elementClicked.id);
+                console.log("The selected scanner is: " + elementClicked.id);
+            }
+        });
+    },
 };
 
-game.hideTreasure(); // hides the first treasure in treasures array
+game.hideTreasure();
+game.hideTreasure();
+game.hideTreasure();
+game.hideTreasure();
+game.createScanner();
+game.createScanner();
+game.createScanner();
 view.createMap(); //creates canvas
+control.setUpEventListeners();
+
+document.querySelector(".scanner" + control.currentScanner).style.fontWeight = "bold"; // seems lame to add this here <- add this into the world generation function or smth?
+view.printElements('#cargoList', game.cargoHold);
 
 var canvas = document.querySelector("canvas");
-var context = canvas.getContext("2d"); // context is where all the draw functions work
+var context = canvas.getContext("2d");
+context.lineWidth = 2; // add this into some sort of world __init function
 
 control.setUpCoordReporter(canvas);
 
-context.font = "20px Arial";
-context.fillText("Hello World", 10, 50);
-
-context.lineWidth = 2;
-view.drawCircle(game.treasures[0].x, game.treasures[0].y, 5);
-game.createScanner();
-game.createScanner();
-view.drawScanners();
-
-control.setUpEventListeners();
-
-var allShapes = game.treasures.concat(game.scanners);
 view.drawMap();
+
+
+
+function fillBar() {
+    var id = setInterval(frame, 20);
+    var elem = document.getElementById("myBar");
+    var width = 1;
+    function frame() {
+        if (width >= 500) {
+            clearInterval(id);
+            game.createScanner();
+            fillBar();
+        } else {
+            width++;
+            elem.style.width = 0.2 * width + '%';
+        }
+    }
+
+}
+fillBar();
+
+typeWriter("#para","true");
