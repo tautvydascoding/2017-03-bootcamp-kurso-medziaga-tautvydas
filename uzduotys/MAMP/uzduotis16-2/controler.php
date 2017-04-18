@@ -1,5 +1,6 @@
 <?php
 
+      // ================= Formos duomenu israsymas i DB ========
 
       $db_username = "root"; // root
       $db_password = "root"; // root
@@ -20,7 +21,7 @@
           $sql = sprintf(
             "INSERT INTO users ( name, lname ) VALUES ('%s', '%s' ) ",
 
-            mysqli_real_escape_string($connection, $username),
+            mysqli_real_escape_string($connection, $username) ,
             mysqli_real_escape_string($connection, $userlname)
           );
 
@@ -34,7 +35,7 @@
            }
        }
 
-       insertUser($con, $_POST['firstname'], $_POST['lastname'] );
+       insertUser($con, trim($_POST['firstname']), $_POST['lastname'] );
 
 
  ?>

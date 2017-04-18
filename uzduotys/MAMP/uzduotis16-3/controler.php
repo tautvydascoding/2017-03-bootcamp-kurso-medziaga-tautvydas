@@ -1,0 +1,21 @@
+<?php
+
+    $server = "localhost";
+    $DB_user = "tautvydas";
+    $DB_password = "tratata";
+    $DB_name = "testtautvydas";
+
+    $connection = mysqli_connect($server, $DB_user, $DB_password, $DB_name );
+    if( $connection == false ) {
+      echo "Prisijungti prie DB nepavyko!!!";
+    }
+
+    function getPosts ($conn) {
+      $sql = "SELECT * FROM posts";
+      $result_array = mysqli_query($conn, $sql);
+      // print_r($result_array);
+      return $result_array;
+    }
+
+
+?>
