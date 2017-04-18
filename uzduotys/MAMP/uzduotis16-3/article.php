@@ -1,6 +1,7 @@
 
 <?php
-      $articles = getPosts($connection); 
+      $articles = getPosts($connection);
+      // $articles = getCustomPosts($connection, "Sabonis");
      if(mysqli_num_rows($articles) > 0 ) {
        // spausdiname straipnsnius
        while( $post = mysqli_fetch_assoc($articles)) {  // && $i++ < 10
