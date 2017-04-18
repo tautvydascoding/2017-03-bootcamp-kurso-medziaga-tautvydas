@@ -46,7 +46,30 @@
              echo " Nepavyko ivykdyti!!!";
            }
        }
-       insertUser($con, "Kaleda", "Perrauskutis", "aaa123", 3312477713);
+      //  insertUser($con, "Kaleda", "Perrauskutis", "aaa123", 3312477713);
+
+      function getUsers ($connection) {
+        $sql = "SELECT * FROM users" ;
+        // vykdome uzklausa
+        $result = mysqli_query($connection, $sql);
+        if( !$result ) {
+          echo " Nepavyko gauti visus vartotjus!!! <br />";
+        }
+
+        if( mysqli_num_rows($result) > 0 ) {
+            // suskaldysime result'atus eilutemis ir issivesime visus is ekrana
+
+            while( $eil = mysqli_fetch_assoc($result)) {
+              print_r($result);
+              echo "<br />";
+
+              // echo "Username: ".$eil['name']." Lastname:  ".$eil['lname']."<br>";
+            }
+        } else {
+            echo "Rasta 0 resultatu <br />";
+        }
+      }
+      getUsers($con);
 
 
 
