@@ -1,5 +1,5 @@
 body {
-  background-image: url("assets/background.jpg");
+  background-image: url("assets/textback.jpg");
   background-attachment: fixed;
   background-repeat: ;
   background-size: 100%;
@@ -37,14 +37,21 @@ header {
 p {
 	color: white;
 	font-family: none;
+	text-align: center;
 }
 
 #profile-text {
+
+  /*background-image: url("assets/textback.jpg");*/
 	margin-bottom: 40px;
 	font-family: 'Roboto', sans-serif;    
-	    -moz-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
-    -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+	    -moz-box-shadow: 0 4px 4px rgba(239, 26, 26, 0.6);
+    -webkit-box-shadow: 0 4px 4px rgba(239, 26, 26, 0.6);
+    box-shadow: 0 4px 4px rgba(239, 26, 26, 0.4);
+    /*background-color: white;*/
+    /*color: #888;*/
+
+
 
 }
 
@@ -57,6 +64,7 @@ p {
     background-image: url("assets/footer.jpg");
     font-size: 140%;
     font-family: 'Press Start 2P', cursive;
+    background-repeat: no-repeat;
 
 
 
@@ -66,26 +74,24 @@ p {
   background-size: 20%;
   background-repeat: no-repeat;
   }
-a {
-	color: white;
-}
+
 
 #card {
 	font-family: 'Oswald', sans-serif;
 	margin-top: 50px;
 }
 #Paragrath1 {
-	    -moz-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
-    -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+	    -moz-box-shadow: 0 4px 4px rgba(239, 26, 26, 0.6);
+    -webkit-box-shadow: 0 4px 4px rgba(239, 26, 26, 0.6);
+    box-shadow: 0 4px 4px rgba(239, 26, 26, 0.4);
     margin-bottom: 20px;
 
 }
 
 #Paragrath2 {
-	    -moz-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
-    -webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+	    -moz-box-shadow: 0 4px 4px rgba(239, 26, 26, 0.6);
+    -webkit-box-shadow: 0 4px 4px rgba(239, 26, 26, 0.6);
+    box-shadow: 0 4px 4px rgba(239, 26, 26, 0.4);
     margin-bottom: 20px;
     margin-left: 30px;
 
@@ -106,9 +112,19 @@ a {
       z-index: 1;
 
 }
+#paragraphs {
+	
+  /*background-image: url("assets/textback.jpg");*/
+}
 
+p {
+	
+	color: 
+}
 
-
+.animated {
+  
+}
 //--------------------------------------------
 
 

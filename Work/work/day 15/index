@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>test 15</title>
+</head>
+<body>
+
+
+<h1>WABA LUBA DUB DUB</h1>
+
+<?php 
+
+	$db_username = "Justas";
+	$db_password = "123456";	
+
+
+ ?>
+
+
+
+</body>
+</html>
