@@ -60,17 +60,30 @@
             // suskaldysime result'atus eilutemis ir issivesime visus is ekrana
 
             while( $eil = mysqli_fetch_assoc($result)) {
-              print_r($result);
+              print_r($eil);
               echo "<br />";
-
               // echo "Username: ".$eil['name']." Lastname:  ".$eil['lname']."<br>";
             }
         } else {
             echo "Rasta 0 resultatu <br />";
         }
       }
-      getUsers($con);
-
+      // getUsers($con);
+      function getUser ($con, $id) {
+        $sql = sprintf(
+                "SELECT * FROM users
+                  WHERE users.id = '%s' ",
+                  mysqli_escape_string($con, $id)
+               );
+        $result = mysqli_query($con, $sql);
+        if( $result ) {
+          $user = mysqli_fetch_assoc($result);
+          print_r($user);
+        } else {
+          echo "Vartotojas nerastas!!!";
+        }
+      }
+        getUser($con, 2);
 
 
 
