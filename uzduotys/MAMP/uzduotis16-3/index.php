@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="lt">
   <head>
     <meta charset="utf-8">
+
     <title>Testuosime straipsniu isvedima is DB </title>
     <link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
     <link href="styles/main.css" rel="stylesheet" type="text/css">
@@ -18,7 +19,9 @@
             include("article.php");
          ?>
       </div>
-
+      <div class="reklama">
+        asfdadsf
+      </div>
     </section>
 
   </body>

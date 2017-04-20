@@ -9,6 +9,8 @@
     if( $connection == false ) {
       echo "Prisijungti prie DB nepavyko!!!";
     }
+    // nustatomas tarptautinis formatas, kad veiktu LT raides
+    mysqli_set_charset($connection, 'UTF8');
 
     function getPosts ($conn) {
       $sql = "SELECT * FROM posts    ";
