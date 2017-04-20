@@ -6,6 +6,11 @@
 	<title>404</title>
 
 </head>
+<?php
+
+	include("post.php");
+
+?>
 <nav id="navbar" class="navbar navbar-inverse">
 
   <div id="Button" class="container">
@@ -21,5 +26,6 @@
 	</div>
 	
 </div>
+
 </body>
 </html>

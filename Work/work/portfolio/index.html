@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
   <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
 
 </head>
@@ -22,7 +23,7 @@
             <div class="nav-collapse">
                 <ul class="nav nav-pills">
                     <li id="gotoTop" class="active"><a href="#">Home</a></li>
-                    <li><a href="assets/underCons.html">My Works</a></li>
+                    <li><a href="assets/underCons.php">My Works</a></li>
                     <li><a id="goToBottom" href="#contact-link">Contacts</a></li>
                 </ul>
             </div>
@@ -32,19 +33,13 @@
 </nav>
 <header>	
 
-<div id="card" class="flip-container">
-    <div class="front">
-      <img id="Profile2" class="img-circle" src="assets/profile2.jpg">
-      <div class="card-block">
+<div id="card" class="img-container" >
+      <img id="foto" class="img-circle" src="assets/profile2.jpg">
         <h4 class="card-title">Justas Dambrauskas</h4>
         <a href="https://www.facebook.com/sovinys.dragunovas"target="_blank" class="btn btn-primary">Facebook</a>
             </div>
-            <div class="back">
-                
-            </div>
-         </div>
-    </div>	
-    	</div>
+
+
     	<div id="profile-text" class="container">
             <h2> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -78,7 +73,7 @@
 		  </div>
 <div class="row">
   <div class="col-md-2">
-     <img id="profile2" src="assets/Profile.jpg">
+     <img class="fingers" src="assets/Profile.jpg">
        </div>
     </div>
  </div>
@@ -142,15 +137,11 @@
         </div>
     </div>
     <div>
-        <section>
-            
-        </section>
-
-
  </section>
  <div>
     </body>
  <footer>
+    <div class="container-fluid">
  	<nav id="footer" class="navbar navbar-inverse navbar-bottom" />
         <div class="container">
             <div class="row">
@@ -168,7 +159,10 @@
                 </div>
             </div>
         </div>
+      </div>
     </nav>
  </footer>
  <script src="mainjs.js"></script>
+
+<script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"> </script>
 </html>
