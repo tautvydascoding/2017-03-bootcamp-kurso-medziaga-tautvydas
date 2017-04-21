@@ -10,7 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/laravel', function(){
+  return view('welcome');
+});
 
 
 // ======= Hospital Page ======
@@ -25,6 +27,8 @@ Route::get('/pacient_doctor/{pacient_id}', 'PacientsController@showDoctor');
 // apdorojame Ajax uzklausa
 Route::get('/getdoctors',  'AjaxController@doctorsList');
 
+//
+
 
 // Route::get('/pacients', function(){
 //   $users = App\pacient::select('name', 'doctor_id')
@@ -36,7 +40,11 @@ Route::get('/getdoctors',  'AjaxController@doctorsList');
 //   }
 // });
 // 404
-Route::get('/{aa}', function(){
-  return view('404');
-});
+// Route::get('/{aa}', function(){
+//   return view('404');
+// });
 //
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
