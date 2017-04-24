@@ -150,3 +150,8 @@ p {
     -moz-animation: shadow 1s ease-in-out infinite;
     animation: shadow 2s ease-in-out infinite;
 }
+
+body, html {
+    cursor: url(assets/cursor.cur), pointer;
+}
+

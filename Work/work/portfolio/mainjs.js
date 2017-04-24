@@ -24,4 +24,15 @@ $('#goToBottom').click(function(){
   }).scroll(); //invoke scroll-handler on page-load
 });
 
+$("#middle").click(function() {
+    $('html, body').animate({
+        scrollTop: $("#Gallery").offset().top
+    }, 2000);
+});
+
+$("#gotoTop").click(function() {
+    $('html, body').animate({
+        scrollTop: $("#navbar").offset().top
+    }, 1000);
+});
 
